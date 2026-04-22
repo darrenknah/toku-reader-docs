@@ -41,7 +41,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: April 9, 2026</p>
+<p class="updated">Last updated: April 22, 2026</p>
 
 <p>Toku Reader ("the App") is a Japanese and Chinese reading assistant developed by Darren Nah. This policy explains what data the App collects, why, and how it is handled.</p>
 
@@ -51,30 +51,47 @@
 <ul>
     <li><strong>Text Reader</strong> — Pasted or imported text (plain text, PDF, EPUB, SRT files) is processed and stored locally on your device.</li>
     <li><strong>Web Reader</strong> — The in-app browser lets you read web pages with reading aids. Toku Reader does not collect, log, or transmit your browsing history, URLs visited, or page content. Web pages are fetched directly by Apple's WebKit framework (the same engine used by Safari), and text analysis happens on-device.</li>
-    <li><strong>OCR Reader</strong> — When you use the camera or select a photo for text recognition, images are processed entirely on your device using Apple's Vision framework. Images are not uploaded, stored, or transmitted.</li>
+    <li><strong>OCR Reader</strong> — When you use the camera or select a photo for text recognition, images are processed entirely on your device using Apple's Vision framework, and optionally Google ML Kit's on-device text recognizer (see "Third-Party SDKs" below). Images are not uploaded, stored, or transmitted.</li>
+    <li><strong>Dictionary</strong> — Lookups use bundled offline databases: JMDict (Japanese), CC-CEDICT (Simplified/Traditional Chinese), MoEDict (Taiwan Traditional Chinese), JMnedict (Japanese names), KANJIDIC2 (kanji data), Tatoeba (example sentences), and pitch accent data. No network requests are made for dictionary lookups.</li>
+    <li><strong>Handwriting Input</strong> — When you use the handwriting canvas to draw a character, recognition runs on-device using either Apple's Vision framework or Google ML Kit's Digital Ink Recognition (see "Third-Party SDKs" below for Google ML Kit's model-download and telemetry behavior).</li>
     <li><strong>Share Extension</strong> — When you share text or URLs from other apps into Toku Reader, the shared content is processed and stored locally on your device.</li>
-    <li><strong>Word Review</strong> — Saved words, review history, and spaced repetition scheduling data are stored locally on your device.</li>
+    <li><strong>Word Review &amp; SRS</strong> — Saved words, review history, and spaced-repetition scheduling data are stored locally on your device.</li>
     <li><strong>Text-to-Speech</strong> — Read-along audio is generated on-device using Apple's built-in speech synthesis. No audio data is transmitted.</li>
-    <li><strong>Anki Import</strong> — Imported .apkg files are processed on-device. File contents are parsed in memory and are not retained after import.</li>
+    <li><strong>Anki Import / Export</strong> — Imported .apkg files are parsed in memory on-device and are not retained after import. Exports are written to a file location you choose; nothing is transmitted.</li>
 </ul>
 
 <h2>What We Collect</h2>
 <p>The App collects data only when you voluntarily choose to submit feedback:</p>
 <ul>
     <li><strong>Error reports</strong> — When you submit a report about an incorrect reading or definition, the report includes: the word you tapped, surrounding context (up to 30 tokens in each direction), the error type, and any note you write. This data is sent to our server so the developer can fix the issue.</li>
-    <li><strong>App experience feedback</strong> — When you submit feedback about the app experience (via Settings > Give Feedback), the report includes: the app area, feedback category, specific issue, and any note you write. This data is sent to our server so the developer can improve the App.</li>
+    <li><strong>App experience feedback</strong> — When you submit feedback about the app experience (via Settings &gt; Give Feedback), the report includes: the app area, feedback category, specific issue, and any note you write. This data is sent to our server so the developer can improve the App.</li>
     <li><strong>Anonymous device identifier</strong> — A random UUID generated on first launch and stored locally on your device. This is sent with feedback reports solely to group reports from the same device. It cannot identify you personally and changes if you reinstall the App.</li>
 </ul>
 
+<h2>Optional External Integrations</h2>
+<p>The following integrations are <strong>off by default</strong> and only activate when you explicitly opt in. Each is independent — you can use the App without any of them.</p>
+
+<h3>WaniKani (optional)</h3>
+<p>If you connect a WaniKani account, the App acts as a client of <a href="https://www.wanikani.com">wanikani.com</a>'s public API (<code>api.wanikani.com</code>). This requires:</p>
+<ul>
+    <li>Your WaniKani <strong>Personal Access Token (PAT)</strong>, which you generate on wanikani.com and paste into the App. The PAT is stored in the iOS Keychain on your device. It is only transmitted to <code>api.wanikani.com</code> over HTTPS, never to the App developer's servers.</li>
+    <li>Your WaniKani subjects, assignments, review statistics, and study materials are fetched from <code>api.wanikani.com</code> and cached locally so reviews and lessons work offline.</li>
+    <li>When you submit a review grade, the result is sent to <code>api.wanikani.com</code> to update your SRS progress on WaniKani's servers. The App does NOT send this data anywhere else.</li>
+</ul>
+<p>Disconnect at any time in Settings — the PAT is deleted from the Keychain and cached WaniKani data is cleared. The App does not read, log, or transmit your WaniKani data except to and from <code>api.wanikani.com</code>. WaniKani's own privacy policy applies to data it holds on its servers.</p>
+
+<h3>Premium Subscription (optional)</h3>
+<p>The monthly premium subscription is processed entirely through <strong>Apple's StoreKit</strong>. Payment information is handled by Apple — the App never sees or stores your payment method, Apple ID, or billing details. The App records only your current entitlement tier (free or premium) and a rolling 30-day analysis-token count, both stored locally on your device in the iOS Keychain.</p>
+
 <h2>What We Do NOT Collect</h2>
 <ul>
-    <li>No names, email addresses, or account information</li>
+    <li>No names, email addresses, or account information (the WaniKani PAT stays on your device and is only sent to wanikani.com)</li>
     <li>No location data</li>
-    <li>No analytics or usage tracking beyond your device</li>
+    <li>No analytics or usage tracking by the App developer</li>
     <li>No advertising identifiers</li>
-    <li>No third-party tracking SDKs</li>
     <li>No browsing history or web activity</li>
     <li>No photos or camera images</li>
+    <li>No payment information (handled entirely by Apple)</li>
     <li>The Japanese and Chinese texts you read in the App are processed entirely on your device and are never sent to any server</li>
 </ul>
 
@@ -83,14 +100,19 @@
 <ul>
     <li><strong>Camera</strong> — Used only for the OCR Reader to photograph printed text. Images are processed on-device and never leave your device.</li>
     <li><strong>Photo Library</strong> — Used only for the OCR Reader to select images for text recognition. The App uses Apple's privacy-preserving photo picker, which only gives the App access to photos you explicitly select.</li>
+    <li><strong>Notifications</strong> — Optional. If you connect WaniKani, the App can schedule a local notification when reviews become available. Notifications are scheduled on-device by iOS; no data is transmitted to enable them.</li>
 </ul>
 
-<h2>Subscriptions and Payments</h2>
-<p>Toku Reader offers optional premium subscriptions. All payment processing is handled entirely by Apple through the App Store. We do not collect, store, or have access to your payment information, Apple ID, or billing details.</p>
-<p>The App tracks your monthly analysis token usage (a count of tokens analyzed) on your device to enforce free-tier limits. This counter is stored locally in your device's secure Keychain and is never transmitted to any server. It resets automatically each month.</p>
+<h2>Third-Party SDKs</h2>
+<p>The App integrates the following third-party SDK:</p>
+<ul>
+    <li><strong>Google ML Kit — Digital Ink Recognition &amp; Text Recognition</strong>. Used on-device for handwriting-to-character recognition in the Dictionary tab, and as an optional alternate OCR engine. The recognition model is downloaded once from Google's servers on first use (over Wi-Fi); after download, recognition runs entirely on-device with no further network activity. Google ML Kit generates a pseudonymous instance identifier used by Google for basic SDK diagnostics. See <a href="https://developers.google.com/ml-kit/terms">Google ML Kit's terms</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> for details. You can avoid Google ML Kit entirely by keeping the default Apple Vision engine in OCR and by not using the handwriting canvas.</li>
+</ul>
+<p>No advertising SDKs, no analytics SDKs, and no crash-reporting SDKs are integrated.</p>
 
 <h2>How Data Is Stored</h2>
-<p>Feedback reports (the only data that leaves your device) are stored in a <a href="https://supabase.com">Supabase</a> database hosted in the European Union (AWS eu-central-1, Frankfurt). Data is transmitted over HTTPS. Row Level Security (RLS) is enabled on all database tables.</p>
+<p>Feedback reports (the only data that leaves your device for the App developer's servers) are stored in a <a href="https://supabase.com">Supabase</a> database hosted in the European Union (AWS eu-central-1, Frankfurt). Data is transmitted over HTTPS. Row Level Security (RLS) is enabled on all database tables.</p>
+<p>WaniKani data (if you opt in) is held by WaniKani on its own servers under WaniKani's privacy policy. Apple holds subscription and payment data under Apple's privacy policy. The App developer has no access to either.</p>
 
 <h2>Data Retention</h2>
 <p>Feedback reports are retained indefinitely to improve the App's accuracy. You may request deletion at any time (see below).</p>
