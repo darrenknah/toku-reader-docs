@@ -41,7 +41,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: April 22, 2026</p>
+<p class="updated">Last updated: April 24, 2026</p>
 
 <p>Toku Reader ("the App") is a Japanese and Chinese reading assistant developed by Darren Nah. This policy explains what data the App collects, why, and how it is handled.</p>
 
@@ -51,7 +51,7 @@
 <ul>
     <li><strong>Text Reader</strong> — Pasted or imported text (plain text, PDF, EPUB, SRT files) is processed and stored locally on your device.</li>
     <li><strong>Web Reader</strong> — The in-app browser lets you read web pages with reading aids. Toku Reader does not collect, log, or transmit your browsing history, URLs visited, or page content. Web pages are fetched directly by Apple's WebKit framework (the same engine used by Safari), and text analysis happens on-device.</li>
-    <li><strong>OCR Reader</strong> — When you use the camera or select a photo for text recognition, images are processed entirely on your device. The default engine is Apple's Vision framework; Google ML Kit's on-device Japanese and Chinese text recognizers are selectable alternatives in Settings (see "Third-Party SDKs" below). Both ML Kit text-recognition models are bundled in the app — no network download is required to use them. Images are not uploaded, stored, or transmitted.</li>
+    <li><strong>OCR Reader</strong> — When you use the camera or select a photo for text recognition, images are processed entirely on your device via Google ML Kit's on-device Japanese and Chinese text recognizers (see "Third-Party SDKs" below). Both ML Kit text-recognition models are bundled in the app — no network download is required to use them. Images are not uploaded, stored, or transmitted.</li>
     <li><strong>Dictionary</strong> — Lookups use bundled offline databases: JMDict (Japanese), CC-CEDICT (Simplified/Traditional Chinese), MoEDict (Taiwan Traditional Chinese), JMnedict (Japanese names), KANJIDIC2 (kanji data), Tatoeba (example sentences), and pitch accent data. No network requests are made for dictionary lookups.</li>
     <li><strong>Handwriting Input</strong> — When you use the handwriting canvas to draw a character, recognition runs on-device via Google ML Kit's Digital Ink Recognition. Unlike ML Kit's text-recognition models, the Digital Ink models are downloaded from Google the first time you use the feature for a given language (~20 MB per language, over Wi-Fi) and then cached on device — all subsequent recognition runs fully offline. See "Third-Party SDKs" below.</li>
     <li><strong>Share Extension</strong> — When you share text or URLs from other apps into Toku Reader, the shared content is processed and stored locally on your device.</li>
@@ -107,10 +107,10 @@
 <p>The App integrates one third-party SDK family: <strong>Google ML Kit</strong>. The specific ML Kit modules used, how they behave, and how to avoid them are listed below.</p>
 <ul>
     <li><strong>Digital Ink Recognition</strong> (handwriting in the Dictionary tab). Recognition runs on-device, but ML Kit downloads the Japanese and Chinese-Han-script models from Google the first time you use the handwriting canvas for that language (~20 MB per language, over Wi-Fi). Once downloaded, recognition runs fully offline. If you never tap the handwriting button, no Digital Ink models are ever downloaded.</li>
-    <li><strong>Text Recognition (Japanese)</strong> and <strong>Text Recognition (Chinese)</strong> — optional OCR engine. Both models are <em>bundled</em> inside the app (no network download). This engine only runs if you explicitly select "Google ML Kit" in Settings → OCR Engine; the default engine for OCR is Apple's Vision framework, which does not involve Google ML Kit at all.</li>
+    <li><strong>Text Recognition (Japanese)</strong> and <strong>Text Recognition (Chinese)</strong> — the sole OCR engine used by the App's OCR Reader. Both models are <em>bundled</em> inside the app (no network download). Recognition runs fully on-device.</li>
     <li><strong>ML Kit's default SDK telemetry.</strong> Google ML Kit generates a pseudonymous instance identifier and may send basic SDK diagnostics to Google on first use. This is Google's default SDK behavior and is not specific to this App. See <a href="https://developers.google.com/ml-kit/terms">Google ML Kit's terms</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
 </ul>
-<p><strong>How to avoid Google ML Kit entirely:</strong> keep "Apple Vision" as the OCR engine in Settings (the default), and don't use the handwriting canvas in the Dictionary tab. All other App features — text reader, web reader, camera/photo OCR with Apple Vision, dictionary text search, SRS reviews, WaniKani integration, paste-based reading — work without ML Kit.</p>
+<p><strong>How to avoid Google ML Kit entirely:</strong> don't use the OCR Reader (camera/photo text recognition) and don't use the handwriting canvas in the Dictionary tab. All other App features — text reader, web reader, dictionary text search, SRS reviews, WaniKani integration, paste-based reading — work without ML Kit.</p>
 <p>No advertising SDKs, no analytics SDKs, and no crash-reporting SDKs are integrated.</p>
 
 <h2>Dictionary Correction Sync</h2>
