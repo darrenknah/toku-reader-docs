@@ -41,7 +41,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: April 24, 2026</p>
+<p class="updated">Last updated: June 12, 2026</p>
 
 <p>Toku Reader ("the App") is a Japanese and Chinese reading assistant developed by Darren Nah. This policy explains what data the App collects, why, and how it is handled.</p>
 
@@ -50,7 +50,8 @@
 <p>This applies to all content surfaces in the App:</p>
 <ul>
     <li><strong>Text Reader</strong> — Pasted or imported text (plain text, PDF, EPUB, SRT files) is processed and stored locally on your device.</li>
-    <li><strong>Web Reader</strong> — The in-app browser lets you read web pages with reading aids. Toku Reader does not collect, log, or transmit your browsing history, URLs visited, or page content. Web pages are fetched directly by Apple's WebKit framework (the same engine used by Safari), and text analysis happens on-device.</li>
+    <li><strong>Web Reader</strong> — The in-app browser lets you read web pages with reading aids. Web pages are fetched directly by Apple's WebKit framework (the same engine used by Safari), and text analysis happens on-device. Browser conveniences — browsing history, open tabs, per-site reading-aid preferences — are stored <em>only on your device</em>, are never transmitted anywhere, are excluded from device backups, and can be cleared at any time (History &gt; Clear). The App developer cannot see your browsing activity.</li>
+    <li><strong>Watch (YouTube)</strong> — The Watch tab plays YouTube videos through YouTube's official embedded player and shows their subtitles as tappable text. When you search for videos or play one, your search terms and video requests are sent to YouTube (Google), exactly as they would be on youtube.com — <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> applies to that traffic. Subtitle text and your recent-video list are cached locally on your device; all language analysis of subtitles happens on-device. The App developer receives none of this data.</li>
     <li><strong>OCR Reader</strong> — When you use the camera or select a photo for text recognition, images are processed entirely on your device via Google ML Kit's on-device Japanese and Chinese text recognizers (see "Third-Party SDKs" below). Both ML Kit text-recognition models are bundled in the app — no network download is required to use them. Images are not uploaded, stored, or transmitted.</li>
     <li><strong>Dictionary</strong> — Lookups use bundled offline databases: JMDict (Japanese), CC-CEDICT (Simplified/Traditional Chinese), MoEDict (Taiwan Traditional Chinese), JMnedict (Japanese names), KANJIDIC2 (kanji data), Tatoeba (example sentences), and pitch accent data. No network requests are made for dictionary lookups.</li>
     <li><strong>Handwriting Input</strong> — When you use the handwriting canvas to draw a character, recognition runs on-device via Google ML Kit's Digital Ink Recognition. Unlike ML Kit's text-recognition models, the Digital Ink models are downloaded from Google the first time you use the feature for a given language (~20 MB per language, over Wi-Fi) and then cached on device — all subsequent recognition runs fully offline. See "Third-Party SDKs" below.</li>
@@ -87,9 +88,9 @@
 <ul>
     <li>No names, email addresses, or account information (the WaniKani PAT stays on your device and is only sent to wanikani.com)</li>
     <li>No location data</li>
-    <li>No analytics or usage tracking by the App developer</li>
+    <li>No analytics or usage tracking by the App developer (a few feature-tuning counters are kept locally on your device and are never transmitted)</li>
     <li>No advertising identifiers</li>
-    <li>No browsing history or web activity</li>
+    <li>No browsing history or web activity is ever transmitted to the developer (your local history stays on your device, under your control)</li>
     <li>No photos or camera images</li>
     <li>No payment information (handled entirely by Apple)</li>
     <li>The Japanese and Chinese texts you read in the App are processed entirely on your device and are never sent to any server</li>
