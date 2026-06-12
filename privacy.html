@@ -66,7 +66,7 @@
 <ul>
     <li><strong>Error reports</strong> — When you submit a report about an incorrect reading or definition, the report includes: the word you tapped, surrounding context (up to 30 tokens in each direction), the error type, and any note you write. This data is sent to our server so the developer can fix the issue.</li>
     <li><strong>App experience feedback</strong> — When you submit feedback about the app experience (via Settings &gt; Give Feedback), the report includes: the app area, feedback category, specific issue, and any note you write. This data is sent to our server so the developer can improve the App.</li>
-    <li><strong>Anonymous device identifier</strong> — A random UUID generated on first launch and stored locally on your device. This is sent with feedback reports solely to group reports from the same device. It cannot identify you personally and changes if you reinstall the App.</li>
+    <li><strong>Anonymous device identifier</strong> — A random UUID generated on first launch and stored in your device's Keychain. This is sent with feedback reports solely to group reports from the same device. It cannot identify you personally. Because it lives in the Keychain it may persist across reinstalls of the App; it never leaves your device except as part of a feedback report you choose to send.</li>
 </ul>
 
 <h2>Optional External Integrations</h2>
@@ -86,7 +86,7 @@
 
 <h2>What We Do NOT Collect</h2>
 <ul>
-    <li>No names, email addresses, or account information (the WaniKani PAT stays on your device and is only sent to wanikani.com)</li>
+    <li>No names or email addresses are ever transmitted to the developer. If you optionally use Sign in with Apple, the name and email Apple shares (which you can hide) are stored only in your device's Keychain and never sent to us; the WaniKani PAT likewise stays on your device and is only sent to wanikani.com</li>
     <li>No location data</li>
     <li>No analytics or usage tracking by the App developer (a few feature-tuning counters are kept locally on your device and are never transmitted)</li>
     <li>No advertising identifiers</li>
