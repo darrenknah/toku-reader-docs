@@ -41,7 +41,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: June 12, 2026</p>
+<p class="updated">Last updated: July 26, 2026</p>
 
 <p>Toku Reader ("the App") is a Japanese and Chinese reading assistant developed by Darren Nah. This policy explains what data the App collects, why, and how it is handled.</p>
 
@@ -62,12 +62,19 @@
 </ul>
 
 <h2>What We Collect</h2>
-<p>The App collects data only when you voluntarily choose to submit feedback:</p>
+<p>Beyond the optional diagnostics described below (which you can turn off), the App collects data only when you voluntarily choose to submit feedback:</p>
 <ul>
     <li><strong>Error reports</strong> — When you submit a report about an incorrect reading or definition, the report includes: the word you tapped, surrounding context (up to 30 tokens in each direction), the error type, and any note you write. This data is sent to our server so the developer can fix the issue.</li>
     <li><strong>App experience feedback</strong> — When you submit feedback about the app experience (via Settings &gt; Give Feedback), the report includes: the app area, feedback category, specific issue, and any note you write. This data is sent to our server so the developer can improve the App.</li>
     <li><strong>Anonymous device identifier</strong> — A random UUID generated on first launch and stored in your device's Keychain. This is sent with feedback reports solely to group reports from the same device. It cannot identify you personally. Because it lives in the Keychain it may persist across reinstalls of the App; it never leaves your device except as part of a feedback report you choose to send.</li>
 </ul>
+
+<h3>Crash &amp; Performance Diagnostics (on by default, optional)</h3>
+<p>To find and fix crashes and freezes, the App uses Apple's <strong>MetricKit</strong> framework (a built-in iOS system framework, not a third-party SDK) to collect diagnostic reports — crash logs, hang reports, and performance metrics — and sends them to the developer's own diagnostics service over HTTPS. These reports contain <strong>no personal information and none of the text you read</strong>; they are not linked to your identity and are never used for tracking or advertising. This is <strong>on by default but fully optional</strong> — you can turn it off at any time in the App's Settings, after which no diagnostic reports are sent.</p>
+
+<h3>Anonymous First-Run Milestones</h3>
+<p>To understand whether new users can get started successfully, the App records a handful of <strong>yes/no milestones</strong> during the first couple of days after a fresh install &mdash; for example: the App was opened, setup was completed, a first text was opened, a first word was tapped, a first word was saved, the reader returned the next day, and whether the free-lookup limit was reached. It also records <strong>how many seconds passed before the first word was tapped</strong>.</p>
+<p>That is the whole list. These are single yes/no flags and one timing number &mdash; <strong>no text you read, no words you look up or save, no titles, and no location</strong>. They are sent as one anonymous row per device, identified only by the random device identifier described above, and are used solely to tell the developer whether the first-run experience works. They are not linked to your identity and are never used for tracking or advertising. Only fresh installs record them; if you already had the App installed before this feature existed, nothing is recorded for you.</p>
 
 <h2>Optional External Integrations</h2>
 <p>The following integrations are <strong>off by default</strong> and only activate when you explicitly opt in. Each is independent — you can use the App without any of them.</p>
@@ -82,13 +89,13 @@
 <p>Disconnect at any time in Settings — the PAT is deleted from the Keychain and cached WaniKani data is cleared. The App does not read, log, or transmit your WaniKani data except to and from <code>api.wanikani.com</code>. WaniKani's own privacy policy applies to data it holds on its servers.</p>
 
 <h3>Premium Subscription (optional)</h3>
-<p>The monthly premium subscription is processed entirely through <strong>Apple's StoreKit</strong>. Payment information is handled by Apple — the App never sees or stores your payment method, Apple ID, or billing details. The App records only your current entitlement tier (free or premium) and a rolling 30-day analysis-token count, both stored locally on your device in the iOS Keychain.</p>
+<p>The monthly premium subscription is processed entirely through <strong>Apple's StoreKit</strong>. Payment information is handled by Apple — the App never sees or stores your payment method, Apple ID, or billing details. The App records only your current entitlement tier (free or premium) and a daily word-lookup count, both stored locally on your device in the iOS Keychain.</p>
 
 <h2>What We Do NOT Collect</h2>
 <ul>
     <li>No names or email addresses are ever transmitted to the developer. If you optionally use Sign in with Apple, the name and email Apple shares (which you can hide) are stored only in your device's Keychain and never sent to us; the WaniKani PAT likewise stays on your device and is only sent to wanikani.com</li>
     <li>No location data</li>
-    <li>No analytics or usage tracking by the App developer (a few feature-tuning counters are kept locally on your device and are never transmitted)</li>
+    <li>No third-party analytics or advertising SDKs, and no tracking of you across apps or websites. The App does send the developer a small set of anonymous first-run milestones and the optional diagnostics described above &mdash; both are detailed in "What We Collect". Other feature-tuning counters are kept locally on your device and are never transmitted.</li>
     <li>No advertising identifiers</li>
     <li>No browsing history or web activity is ever transmitted to the developer (your local history stays on your device, under your control)</li>
     <li>No photos or camera images</li>
