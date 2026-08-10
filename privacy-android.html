@@ -1,3 +1,42 @@
+<!--
+    Toku Reader for Android — Privacy Policy
+    ========================================
+
+    THE PUBLISHED COPY OF THIS FILE IS THE ONE THE APP LINKS TO.
+
+    Publish by copying this file to the public docs repo (the owner does this,
+    not an agent — publishing is the human gate):
+
+      cp docs/privacy-android.html ~/toku-reader-docs/privacy-android.html
+      cd ~/toku-reader-docs && git add privacy-android.html
+      git commit -m "Privacy (Android): ..." && git push
+
+    It serves at:
+      https://darrenknah.github.io/toku-reader-docs/privacy-android.html
+    which is the URL in Play Console › App content › Privacy policy AND the
+    URL in SettingsScreen.kt's PRIVACY_URL. Those three must agree.
+
+    `toku-reader-docs` is the CANONICAL public docs repo and the only one with
+    GitHub Pages enabled — nihongoreader2 and toku-android are both private and
+    serve nothing. Do not host this from either of them.
+
+    THIS PAGE IS A CLAIM ABOUT CODE. Every statement below is checkable against
+    the repo, and `docs/PLAY_DATA_SAFETY.md` holds the evidence line for each
+    one alongside the matching Play Console answer. Change one, change all three
+    (page, form, code) in the same PR.
+
+    UPDATE THIS FILE when any of these change:
+    - A network destination is added or removed (the list in "Where the App
+      connects" is meant to be EXHAUSTIVE)
+    - A permission is added (compare against the MERGED manifest, not the
+      hand-written one — libraries add permissions of their own)
+    - An SDK is added, especially one from Google (they carry their own
+      diagnostics)
+    - Anything starts being collected by the developer (today: nothing)
+    - The OTA content path (ContentManifestService) gets wired — TODAY IT IS
+      NOT CALLED, which is the only reason "no developer server" is true
+    - Contact email
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
