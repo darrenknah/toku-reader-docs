@@ -153,14 +153,15 @@ of the developer's.</p>
         exactly as they would from any podcast app.</li>
     <li><strong>Podcast artwork</strong> — cover images are loaded from the
         publisher's image host or a podcast-directory CDN.</li>
-    <li><strong>Speech model download</strong> — the offline transcription model
-        is downloaded once, from Hugging Face
-        (<code>huggingface.co</code>), the standard public host for these
-        models. Depending on the size you choose in
-        <em>Settings › Transcripts &amp; Storage</em> this is roughly 78 MB to
-        1.6 GB. Hugging Face sees a normal file download. After that,
-        transcription is fully offline. If you never transcribe anything, this
-        never happens.</li>
+    <li><strong>Speech model download</strong> — the offline transcription
+        models are downloaded once: the recognizer (roughly 240 MB) from
+        Hugging Face (<code>huggingface.co</code>) and a small voice-activity
+        file (under 2 MB) from GitHub (<code>github.com</code>) — the standard
+        public hosts for these models. A larger optional model chosen in
+        <em>Settings › Transcripts &amp; Storage</em> (up to roughly 1.6 GB)
+        also comes from Hugging Face. Each host sees a normal file download.
+        After that, transcription is fully offline. If you never transcribe
+        anything, this never happens.</li>
     <li><strong>Web Reader</strong> — the in-app browser loads the pages you
         navigate to using Android System WebView (the same engine as Chrome).
         The App does not collect, log or transmit your browsing history, the
