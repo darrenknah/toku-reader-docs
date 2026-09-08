@@ -41,7 +41,7 @@
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: July 26, 2026</p>
+<p class="updated">Last updated: September 8, 2026</p>
 
 <p>Toku Reader ("the App") is a Japanese and Chinese reading assistant developed by Darren Nah. This policy explains what data the App collects, why, and how it is handled.</p>
 
@@ -101,6 +101,7 @@
     <li>No photos or camera images</li>
     <li>No payment information (handled entirely by Apple)</li>
     <li>The Japanese and Chinese texts you read in the App are processed entirely on your device and are never sent to any server</li>
+    <li>Nothing the App keeps in your iCloud account — your library, saved words, decks, reading position, podcast favorites — is visible to the developer. It is in your account, not ours (see "iCloud Sync" below)</li>
 </ul>
 
 <h2>Device Permissions</h2>
@@ -123,6 +124,24 @@
 
 <h2>Dictionary Correction Sync</h2>
 <p>On each app launch, Toku Reader fetches the latest set of approved dictionary corrections (reading/definition fixes the developer has curated from anonymous user feedback) from the same Supabase server the feedback reports go to. This is a read-only download of correction entries — no personal data is sent from your device in this request, and the App does not upload or identify you during the fetch. If the network is unavailable, the App continues using the previously cached corrections bundled with the app.</p>
+
+<!--
+    Added 2026-09-08 for the iCloud sync release. This section describes the
+    CloudKit private database and iCloud key-value storage the App starts using.
+    Do NOT publish it before the build that contains them ships: every sentence
+    on this page must be true of the App on the day it goes live.
+-->
+<h2>iCloud Sync (Your Own iPhones and iPads)</h2>
+<p>Toku Reader can keep your reading in step across your own Apple devices. Your saved texts and books, your saved words and their review progress, your decks, and where you had got to in each text are stored in <strong>your own iCloud account</strong> — on Apple's servers, under your Apple ID, in what Apple calls a <em>private database</em>. That means exactly what it sounds like: it belongs to you, not to us. The App developer cannot read it, cannot list it, and could not produce it if asked to.</p>
+<p>Your podcast favorites, your collections, and the shows and channels you follow travel the same way, using iCloud key-value storage — a small, simple version of the same thing, also inside your own iCloud account.</p>
+<ul>
+    <li><strong>Nothing new is sent to the developer.</strong> This feature does not add anything to what is described under "What We Collect" above. Your texts still never reach our servers.</li>
+    <li><strong>It covers your iPhones and iPads</strong> — the devices signed in to the same Apple account. Toku Reader for Android does not sync, and cannot: iCloud is Apple's.</li>
+    <li><strong>Your settings do not sync.</strong> Reading aids, text size, and your other preferences are set on each device separately.</li>
+    <li><strong>You can turn it off.</strong> In the App, go to Settings and switch off "Sync with iCloud". Nothing further is sent to iCloud after that.</li>
+    <li><strong>You can delete what is already there.</strong> On your iPhone or iPad, open the iOS Settings app, tap your name at the very top, then iCloud → Manage Account Storage (called "Manage Storage" on some versions of iOS) → Toku Reader. Deleting it there removes the App's iCloud data from your account. Because this is your account and not ours, this is something only you can do — the developer has no way to reach it.</li>
+</ul>
+<p>Apple's handling of data in your iCloud account is governed by <a href="https://www.apple.com/legal/privacy/en-ww/">Apple's Privacy Policy</a>, not by this one.</p>
 
 <h2>How Data Is Stored</h2>
 <p>Feedback reports (the only data that leaves your device for the App developer's servers) are stored in a <a href="https://supabase.com">Supabase</a> database hosted in the European Union (AWS eu-central-1, Frankfurt). Data is transmitted over HTTPS. Row Level Security (RLS) is enabled on all database tables.</p>
