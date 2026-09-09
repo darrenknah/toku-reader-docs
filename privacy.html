@@ -1,16 +1,29 @@
 <!--
-    Toku Reader Privacy Policy
+    Toku Reader Privacy Policy (iOS) — REDIRECT ONLY. No policy text here.
 
-    UPDATE THIS FILE when any of these change:
-    - Data processor (currently: Supabase, EU region, AWS eu-central-1)
-    - Data collected (currently: feedback reports + app feedback + anonymous device UUID)
-    - Analytics/tracking added (currently: none)
-    - Contact email (currently: tokureader@gmail.com)
-    - Business model changes that affect data handling
-    - New device capabilities used (camera, photo library, etc.)
+    Owner decision, 2026-09-09: the privacy policy lives in ONE place,
+    https://tokureader.com/privacy, and everything else points at it.
 
-    After editing, push to main — GitHub Pages auto-deploys from /docs.
-    Also update the "Last updated" date below.
+    WHY THIS FILE STILL EXISTS. This address is the one the App Store listing
+    names, and Apple requires a listed privacy URL to resolve. Old TestFlight
+    notes, old store listings and links people have saved must not start
+    returning 404. So the page stays and sends the reader on.
+
+    WHAT WENT WRONG. This was a full copy of the policy, and it drifted. On
+    2026-09-08 the website was updated for iCloud sync and this copy was not; at
+    the point it was retired it still said the data lived in the EU (Frankfurt)
+    months after it moved to Ohio, and had no section for AI explanations or
+    Sign in with Apple — while being the page a reader actually reached from the
+    App Store. Three copies kept in step by good intentions is not a system.
+
+    The branch privacy/icloud-sync in this repository added an iCloud Sync
+    section here. It is NOT merged, and nothing is lost by that: the same text,
+    word for word, is published on the canonical page.
+
+    DO NOT put policy text back in this file. nihongoreader2's
+    scripts/hooks/check-privacy-canonical.sh blocks the push if you do. To
+    change the policy, edit ~/toku-web (app/(site)/[lang]/privacy/page.tsx) and
+    deploy tokureader.com.
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -18,152 +31,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy — Toku Reader</title>
+    <link rel="canonical" href="https://tokureader.com/privacy">
+    <meta http-equiv="refresh" content="0; url=https://tokureader.com/privacy">
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             max-width: 680px;
             margin: 0 auto;
-            padding: 24px 16px;
+            padding: 48px 16px;
             line-height: 1.6;
             color: #1d1d1f;
             background: #fff;
         }
-        h1 { font-size: 1.8em; margin-bottom: 0.2em; }
-        h2 { font-size: 1.2em; margin-top: 1.8em; color: #333; }
-        h3 { font-size: 1.05em; margin-top: 1.2em; color: #555; }
-        .updated { color: #86868b; font-size: 0.9em; margin-bottom: 2em; }
-        ul { padding-left: 1.4em; }
-        li { margin-bottom: 0.4em; }
+        h1 { font-size: 1.6em; margin-bottom: 0.4em; }
         a { color: #0066cc; }
-        .contact { margin-top: 2em; padding: 16px; background: #f5f5f7; border-radius: 8px; }
+        p { margin: 0 0 1em; }
     </style>
 </head>
 <body>
 
 <h1>Privacy Policy</h1>
-<p class="updated">Last updated: July 26, 2026</p>
 
-<p>Toku Reader ("the App") is a Japanese and Chinese reading assistant developed by Darren Nah. This policy explains what data the App collects, why, and how it is handled.</p>
+<p>The Toku Reader privacy policy has moved. It now lives in one place:</p>
 
-<h2>On-Device Processing</h2>
-<p>The core function of Toku Reader is to help you read Japanese and Chinese text. All text analysis — including tokenization, readings, definitions, and dictionary lookups — is performed entirely on your device. The texts you paste, import, or read in the App are never sent to any server.</p>
-<p>This applies to all content surfaces in the App:</p>
-<ul>
-    <li><strong>Text Reader</strong> — Pasted or imported text (plain text, PDF, EPUB, SRT files) is processed and stored locally on your device.</li>
-    <li><strong>Web Reader</strong> — The in-app browser lets you read web pages with reading aids. Web pages are fetched directly by Apple's WebKit framework (the same engine used by Safari), and text analysis happens on-device. Browser conveniences — browsing history, open tabs, per-site reading-aid preferences — are stored <em>only on your device</em>, are never transmitted anywhere, are excluded from device backups, and can be cleared at any time (History &gt; Clear). The App developer cannot see your browsing activity.</li>
-    <li><strong>Watch (YouTube)</strong> — The Watch tab plays YouTube videos through YouTube's official embedded player and shows their subtitles as tappable text. When you search for videos or play one, your search terms and video requests are sent to YouTube (Google), exactly as they would be on youtube.com — <a href="https://policies.google.com/privacy">Google's Privacy Policy</a> applies to that traffic. Subtitle text and your recent-video list are cached locally on your device; all language analysis of subtitles happens on-device. The App developer receives none of this data.</li>
-    <li><strong>OCR Reader</strong> — When you use the camera or select a photo for text recognition, images are processed entirely on your device via Google ML Kit's on-device Japanese and Chinese text recognizers (see "Third-Party SDKs" below). Both ML Kit text-recognition models are bundled in the app — no network download is required to use them. Images are not uploaded, stored, or transmitted.</li>
-    <li><strong>Dictionary</strong> — Lookups use bundled offline databases: JMDict (Japanese), CC-CEDICT (Simplified/Traditional Chinese), MoEDict (Taiwan Traditional Chinese), JMnedict (Japanese names), KANJIDIC2 (kanji data), Tatoeba (example sentences), and pitch accent data. No network requests are made for dictionary lookups.</li>
-    <li><strong>Handwriting Input</strong> — When you use the handwriting canvas to draw a character, recognition runs on-device via Google ML Kit's Digital Ink Recognition. Unlike ML Kit's text-recognition models, the Digital Ink models are downloaded from Google the first time you use the feature for a given language (~20 MB per language, over Wi-Fi) and then cached on device — all subsequent recognition runs fully offline. See "Third-Party SDKs" below.</li>
-    <li><strong>Share Extension</strong> — When you share text or URLs from other apps into Toku Reader, the shared content is processed and stored locally on your device.</li>
-    <li><strong>Word Review &amp; SRS</strong> — Saved words, review history, and spaced-repetition scheduling data are stored locally on your device.</li>
-    <li><strong>Text-to-Speech</strong> — Read-along audio is generated on-device using Apple's built-in speech synthesis. No audio data is transmitted.</li>
-    <li><strong>Anki Import / Export</strong> — Imported .apkg files are parsed in memory on-device and are not retained after import. Exports are written to a file location you choose; nothing is transmitted.</li>
-</ul>
+<p><a href="https://tokureader.com/privacy">https://tokureader.com/privacy</a></p>
 
-<h2>What We Collect</h2>
-<p>Beyond the optional diagnostics described below (which you can turn off), the App collects data only when you voluntarily choose to submit feedback:</p>
-<ul>
-    <li><strong>Error reports</strong> — When you submit a report about an incorrect reading or definition, the report includes: the word you tapped, surrounding context (up to 30 tokens in each direction), the error type, and any note you write. This data is sent to our server so the developer can fix the issue.</li>
-    <li><strong>App experience feedback</strong> — When you submit feedback about the app experience (via Settings &gt; Give Feedback), the report includes: the app area, feedback category, specific issue, and any note you write. This data is sent to our server so the developer can improve the App.</li>
-    <li><strong>Anonymous device identifier</strong> — A random UUID generated on first launch and stored in your device's Keychain. This is sent with feedback reports solely to group reports from the same device. It cannot identify you personally. Because it lives in the Keychain it may persist across reinstalls of the App; it never leaves your device except as part of a feedback report you choose to send.</li>
-</ul>
-
-<h3>Crash &amp; Performance Diagnostics (on by default, optional)</h3>
-<p>To find and fix crashes and freezes, the App uses Apple's <strong>MetricKit</strong> framework (a built-in iOS system framework, not a third-party SDK) to collect diagnostic reports — crash logs, hang reports, and performance metrics — and sends them to the developer's own diagnostics service over HTTPS. These reports contain <strong>no personal information and none of the text you read</strong>; they are not linked to your identity and are never used for tracking or advertising. This is <strong>on by default but fully optional</strong> — you can turn it off at any time in the App's Settings, after which no diagnostic reports are sent.</p>
-
-<h3>Anonymous First-Run Milestones</h3>
-<p>To understand whether new users can get started successfully, the App records a handful of <strong>yes/no milestones</strong> during the first couple of days after a fresh install &mdash; for example: the App was opened, setup was completed, a first text was opened, a first word was tapped, a first word was saved, the reader returned the next day, and whether the free-lookup limit was reached. It also records <strong>how many seconds passed before the first word was tapped</strong>.</p>
-<p>That is the whole list. These are single yes/no flags and one timing number &mdash; <strong>no text you read, no words you look up or save, no titles, and no location</strong>. They are sent as one anonymous row per device, identified only by the random device identifier described above, and are used solely to tell the developer whether the first-run experience works. They are not linked to your identity and are never used for tracking or advertising. Only fresh installs record them; if you already had the App installed before this feature existed, nothing is recorded for you.</p>
-
-<h2>Optional External Integrations</h2>
-<p>The following integrations are <strong>off by default</strong> and only activate when you explicitly opt in. Each is independent — you can use the App without any of them.</p>
-
-<h3>WaniKani (optional)</h3>
-<p>If you connect a WaniKani account, the App acts as a client of <a href="https://www.wanikani.com">wanikani.com</a>'s public API (<code>api.wanikani.com</code>). This requires:</p>
-<ul>
-    <li>Your WaniKani <strong>Personal Access Token (PAT)</strong>, which you generate on wanikani.com and paste into the App. The PAT is stored in the iOS Keychain on your device. It is only transmitted to <code>api.wanikani.com</code> over HTTPS, never to the App developer's servers.</li>
-    <li>Your WaniKani subjects, assignments, review statistics, and study materials are fetched from <code>api.wanikani.com</code> and cached locally so reviews and lessons work offline.</li>
-    <li>When you submit a review grade, the result is sent to <code>api.wanikani.com</code> to update your SRS progress on WaniKani's servers. The App does NOT send this data anywhere else.</li>
-</ul>
-<p>Disconnect at any time in Settings — the PAT is deleted from the Keychain and cached WaniKani data is cleared. The App does not read, log, or transmit your WaniKani data except to and from <code>api.wanikani.com</code>. WaniKani's own privacy policy applies to data it holds on its servers.</p>
-
-<h3>Premium Subscription (optional)</h3>
-<p>The monthly premium subscription is processed entirely through <strong>Apple's StoreKit</strong>. Payment information is handled by Apple — the App never sees or stores your payment method, Apple ID, or billing details. The App records only your current entitlement tier (free or premium) and a daily word-lookup count, both stored locally on your device in the iOS Keychain.</p>
-
-<h2>What We Do NOT Collect</h2>
-<ul>
-    <li>No names or email addresses are ever transmitted to the developer. If you optionally use Sign in with Apple, the name and email Apple shares (which you can hide) are stored only in your device's Keychain and never sent to us; the WaniKani PAT likewise stays on your device and is only sent to wanikani.com</li>
-    <li>No location data</li>
-    <li>No third-party analytics or advertising SDKs, and no tracking of you across apps or websites. The App does send the developer a small set of anonymous first-run milestones and the optional diagnostics described above &mdash; both are detailed in "What We Collect". Other feature-tuning counters are kept locally on your device and are never transmitted.</li>
-    <li>No advertising identifiers</li>
-    <li>No browsing history or web activity is ever transmitted to the developer (your local history stays on your device, under your control)</li>
-    <li>No photos or camera images</li>
-    <li>No payment information (handled entirely by Apple)</li>
-    <li>The Japanese and Chinese texts you read in the App are processed entirely on your device and are never sent to any server</li>
-</ul>
-
-<h2>Device Permissions</h2>
-<p>The App may request the following permissions, all of which are optional:</p>
-<ul>
-    <li><strong>Camera</strong> — Used only for the OCR Reader to photograph printed text. Images are processed on-device and never leave your device.</li>
-    <li><strong>Photo Library</strong> — Used only for the OCR Reader to select images for text recognition. The App uses Apple's privacy-preserving photo picker, which only gives the App access to photos you explicitly select.</li>
-    <li><strong>Notifications</strong> — Optional. If you connect WaniKani, the App can schedule a local notification when reviews become available. Notifications are scheduled on-device by iOS; no data is transmitted to enable them.</li>
-</ul>
-
-<h2>Third-Party SDKs</h2>
-<p>The App integrates one third-party SDK family: <strong>Google ML Kit</strong>. The specific ML Kit modules used, how they behave, and how to avoid them are listed below.</p>
-<ul>
-    <li><strong>Digital Ink Recognition</strong> (handwriting in the Dictionary tab). Recognition runs on-device, but ML Kit downloads the Japanese and Chinese-Han-script models from Google the first time you use the handwriting canvas for that language (~20 MB per language, over Wi-Fi). Once downloaded, recognition runs fully offline. If you never tap the handwriting button, no Digital Ink models are ever downloaded.</li>
-    <li><strong>Text Recognition (Japanese)</strong> and <strong>Text Recognition (Chinese)</strong> — the sole OCR engine used by the App's OCR Reader. Both models are <em>bundled</em> inside the app (no network download). Recognition runs fully on-device.</li>
-    <li><strong>ML Kit's default SDK telemetry.</strong> Google ML Kit generates a pseudonymous instance identifier and may send basic SDK diagnostics to Google on first use. This is Google's default SDK behavior and is not specific to this App. See <a href="https://developers.google.com/ml-kit/terms">Google ML Kit's terms</a> and <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
-</ul>
-<p><strong>How to avoid Google ML Kit entirely:</strong> don't use the OCR Reader (camera/photo text recognition) and don't use the handwriting canvas in the Dictionary tab. All other App features — text reader, web reader, dictionary text search, SRS reviews, WaniKani integration, paste-based reading — work without ML Kit.</p>
-<p>No advertising SDKs, no analytics SDKs, and no crash-reporting SDKs are integrated.</p>
-
-<h2>Dictionary Correction Sync</h2>
-<p>On each app launch, Toku Reader fetches the latest set of approved dictionary corrections (reading/definition fixes the developer has curated from anonymous user feedback) from the same Supabase server the feedback reports go to. This is a read-only download of correction entries — no personal data is sent from your device in this request, and the App does not upload or identify you during the fetch. If the network is unavailable, the App continues using the previously cached corrections bundled with the app.</p>
-
-<h2>How Data Is Stored</h2>
-<p>Feedback reports (the only data that leaves your device for the App developer's servers) are stored in a <a href="https://supabase.com">Supabase</a> database hosted in the European Union (AWS eu-central-1, Frankfurt). Data is transmitted over HTTPS. Row Level Security (RLS) is enabled on all database tables.</p>
-<p>WaniKani data (if you opt in) is held by WaniKani on its own servers under WaniKani's privacy policy. Apple holds subscription and payment data under Apple's privacy policy. The App developer has no access to either.</p>
-
-<h2>Data Retention</h2>
-<p>Feedback reports are retained indefinitely to improve the App's accuracy. You may request deletion at any time (see below).</p>
-
-<h2>Your Rights</h2>
-
-<h3>Under GDPR (European Union)</h3>
-<p>If you are in the EU/EEA, you have the right to:</p>
-<ul>
-    <li>Access the personal data we hold about you</li>
-    <li>Request correction of inaccurate data</li>
-    <li>Request deletion of your data</li>
-    <li>Request portability of your data</li>
-    <li>Object to processing of your data</li>
-</ul>
-<p>Legal basis for processing: legitimate interest in improving the App's accuracy based on voluntary user feedback.</p>
-
-<h3>Under APPI (Japan)</h3>
-<p>If you are in Japan, you have the right to request disclosure, correction, or deletion of your personal information under the Act on the Protection of Personal Information. Data is stored in the EU (Frankfurt), which provides an adequate level of data protection.</p>
-
-<h3>Under PIPL (China)</h3>
-<p>If you are in China, you have the right to access, copy, correct, and request deletion of your personal information under the Personal Information Protection Law. The App processes all reading content locally on your device. Only voluntarily submitted feedback reports are transferred to servers in the EU.</p>
-
-<h3>Under CCPA (California, USA)</h3>
-<p>If you are a California resident, you have the right to know what personal information is collected and to request its deletion. The App does not sell personal information.</p>
-
-<h3>Children's Privacy (COPPA)</h3>
-<p>The App is not directed at children under 13. We do not knowingly collect personal information from children. If you believe a child has submitted data through the App, please contact us for removal.</p>
-
-<h2>Changes to This Policy</h2>
-<p>We may update this policy from time to time. Changes will be posted on this page with an updated date.</p>
-
-<div class="contact">
-    <h2 style="margin-top: 0;">Contact</h2>
-    <p>For any privacy-related requests (access, deletion, questions), please contact:</p>
-    <p><a href="mailto:tokureader@gmail.com">tokureader@gmail.com</a></p>
-</div>
+<p>Your browser should take you there automatically. If it does not, use the link above.</p>
 
 </body>
 </html>
