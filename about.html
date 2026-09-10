@@ -1,8 +1,24 @@
+<!--
+    About — REDIRECT ONLY.
+
+    Owner decision, 2026-09-10: this site is an older duplicate of
+    tokureader.com and was competing with it in search results. Every page
+    here now forwards to the matching page on tokureader.com, carries
+    <meta name="robots" content="noindex, follow"> so search engines drop the
+    duplicate, and names the canonical page.
+
+    The text below is kept only so the page still reads sensibly if a browser
+    or extension blocks the automatic forward. To change what it says, edit
+    ~/toku-web and deploy tokureader.com — not this file.
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, follow">
+    <link rel="canonical" href="https://tokureader.com/about">
+    <meta http-equiv="refresh" content="0; url=https://tokureader.com/about">
     <title>About — Toku Reader</title>
     <style>
         body {
@@ -26,12 +42,15 @@
         }
         .kanji-caption { color: #86868b; font-size: 0.9em; margin-bottom: 1.6em; }
         a { color: #0066cc; }
+        .moved { padding: 12px 16px; background: #f5f5f7; border-radius: 8px; margin-bottom: 1.5em; }
         .publications { margin-top: 2em; }
         .publications li { margin-bottom: 0.8em; }
         .contact { margin-top: 2em; padding: 16px; background: #f5f5f7; border-radius: 8px; }
     </style>
 </head>
 <body>
+
+<p class="moved">This page has moved to <a href="https://tokureader.com/about">tokureader.com</a>.</p>
 
 <h1>Darren Nah</h1>
 <p class="tagline">Language learner, reader, builder of small tools.</p>
